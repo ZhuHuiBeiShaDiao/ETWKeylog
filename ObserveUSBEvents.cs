@@ -64,13 +64,14 @@ namespace logger
 							var message = new USBMessage(usbPayload);
 							if (message.Header.Length >= 128 && message.BulkOrInterrupt.Payload != null)
 							{
-								if (ValidatePayload(message.BulkOrInterrupt.Payload))
+								 if (ValidatePayload(message.BulkOrInterrupt.Payload))
 								{
 									try
 									{
 										KeyboardKeymap key = (KeyboardKeymap) message.BulkOrInterrupt.Payload[(byte)PayloadKeys.KeyCode];
 										KeyboardModifier modifier = (KeyboardModifier) message.BulkOrInterrupt.Payload[(byte)PayloadKeys.Modifier];
 										Console.WriteLine($"Key modifier: {modifier} - Key pressed: {key} ");
+										Console.WriteLine(BitConverter.ToString(message.BulkOrInterrupt.Payload));
 									}
 									catch (Exception)
 									{
@@ -107,10 +108,10 @@ namespace logger
 
 			ptr = 0;
 			if (payload[ptr++] == 0x00 &&
-			    payload[ptr++] == (byte) KeyboardModifier.Shift &&
-			    payload[ptr++] == 0x00 &&
-			    payload[ptr++] != 0x00 &&
-			    payload[ptr++] == 0x00 &&
+					payload[ptr++] == 0x00 &&
+					payload[ptr++] == (byte) KeyboardModifier.Shift &&
+					payload[ptr++] == 0x00 &&
+					payload[ptr++] != 0x00 &&
 			    payload[ptr++] == 0x00 &&
 			    payload[ptr++] == 0x00 &&
 			    payload[ptr++] == 0x00)
@@ -118,10 +119,10 @@ namespace logger
 
 			ptr = 0;
 			if (payload[ptr++] == 0x00 &&
-			    payload[ptr++] == (byte) KeyboardModifier.None &&
-			    payload[ptr++] == 0x00 &&
-			    payload[ptr++] != 0x00 &&
-			    payload[ptr++] == 0x00 &&
+					payload[ptr++] == 0x00 &&
+					payload[ptr++] == (byte)KeyboardModifier.None &&
+					payload[ptr++] == 0x00 &&
+					payload[ptr++] != 0x00 &&
 			    payload[ptr++] == 0x00 &&
 			    payload[ptr++] == 0x00 &&
 			    payload[ptr++] == 0x00)

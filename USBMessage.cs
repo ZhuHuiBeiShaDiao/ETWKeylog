@@ -95,17 +95,17 @@ namespace logger
 
 			if (data.Length < streamPtr + 64) return;
 			BulkOrInterrupt.Hca = new byte[64];
-			for (var i = 1; i <= 64; ++i)
+			for (var i = 0; i < 64; ++i)
 			{
-				BulkOrInterrupt.Hca[i-1] = data[streamPtr + i];
+				BulkOrInterrupt.Hca[i] = data[streamPtr + i];
 			}
 			streamPtr += 64;
 
 			if (data.Length < streamPtr + 8) return;
 			BulkOrInterrupt.Payload = new byte[8];
-			for (var i = 1; i <= 8; ++i)
+			for (var i = 1; i < 8; ++i)
 			{
-				BulkOrInterrupt.Payload[i-1] = data[streamPtr + i];
+				BulkOrInterrupt.Payload[i] = data[streamPtr + i];
 			}
 		}
 

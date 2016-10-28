@@ -98,6 +98,7 @@ namespace logger
 		Escape = 0x29,
 		Delete = 0x2A,
 		TAB = 0x2B,
+		SPACE = 0x2C,
 		CAPSLOCK = 0x39,
 		LEFTCONTROL = 0xE0,
 		LEFTSHIFT = 0xE1,
@@ -121,8 +122,8 @@ namespace logger
 	/// </summary>
 	enum PayloadKeys : byte
 	{
-		Modifier = 1,
-		KeyCode = 3
+		Modifier = 2,
+		KeyCode = 4
 	}
 
 }
