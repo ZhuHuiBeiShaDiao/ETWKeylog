@@ -8,7 +8,9 @@ using System.Threading.Tasks;
 
 namespace logger
 {
-
+	/// <summary>
+	/// USB message class. This class represents USB protocol messages
+	/// </summary>
 	class USBMessage
 	{
 		public class UrbHeader

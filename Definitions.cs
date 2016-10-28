@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace logger
 {
+	/// <summary>
+	/// USB device status'
+	/// </summary>
 	enum USBDStatus : UInt32
 	{
 		SUCCESS = 0x00000000,
@@ -46,6 +49,9 @@ namespace logger
 		CANCELLING = 0x00020000
 	}
 
+	/// <summary>
+	/// USB HID keyboard codes. This is an incomplete list
+	/// </summary>
 	enum KeyboardKeymap : byte
 	{
 		Reserved = 0x00,
@@ -101,12 +107,18 @@ namespace logger
 		RIGHTALT = 0xE6
 	}
 
+	/// <summary>
+	/// Keyboard modifiers. This was implented to support shift key detection
+	/// </summary>
 	enum KeyboardModifier : byte
 	{
 		None = 0x00,
 		Shift = 0x02
 	}
 
+	/// <summary>
+	/// Enum to represent indices of interest in the payload
+	/// </summary>
 	enum PayloadKeys : byte
 	{
 		Modifier = 1,
