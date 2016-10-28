@@ -93,7 +93,7 @@ namespace logger
 			BulkOrInterrupt.UrbLink = BitConverter.ToUInt64(data, streamPtr);
 			streamPtr += 8;
 
-			if (data.Length-1 < streamPtr + 64) return;
+			if (data.Length < streamPtr + 64) return;
 			BulkOrInterrupt.Hca = new byte[64];
 			for (var i = 1; i <= 64; ++i)
 			{
@@ -101,7 +101,7 @@ namespace logger
 			}
 			streamPtr += 64;
 
-			if (data.Length-1 < streamPtr + 8) return;
+			if (data.Length < streamPtr + 8) return;
 			BulkOrInterrupt.Payload = new byte[8];
 			for (var i = 1; i <= 8; ++i)
 			{
